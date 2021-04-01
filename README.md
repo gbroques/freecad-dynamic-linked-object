@@ -14,7 +14,7 @@ Each leg has two different variants:
 
 The variants can be controlled by a parameter in a spreadsheet.
 
-For our table model, we'll create '''five''' separate documents:
+For our table model, we'll create **five** separate documents:
 
 1. `TableTop.FCStd` - containing the top of the table.
 2. `RoundTableLeg.FCStd` - containing a ''round'' table leg.
