@@ -38,7 +38,7 @@ The goal is to *not* duplicate the following assembly logic for each table leg v
 How this is accomplished:
 * The `TableTop` and one of the TableLeg objects (Round or Square) are linked into the `Table` document.
 * The TableLeg link is renamed to `TableLeg` and the "Linked Object" property is changed to the following conditional expression:
-  `<<Spreadsheet>>#Spreadsheet.TableLegVariant == <<Square>> ? <<SquareTableLeg>>#<<SquareTableLeg>>._self : <<RoundTableLeg>>#<<RoundTableLeg>>._self`
+  * `<<Spreadsheet>>#Spreadsheet.TableLegVariant == <<Square>> ? <<SquareTableLeg>>#<<SquareTableLeg>>._self : <<RoundTableLeg>>#<<RoundTableLeg>>._self`
 * Each table leg must appear **four** times underneath each corner of the table top so an [orthogonal array](https://wiki.freecadweb.org/Draft_OrthoArray) is created using the parametric `TableLeg` link as a base object.
 
 ![Dynamic Table Leg](dynamic-table-leg.gif)
