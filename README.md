@@ -33,10 +33,13 @@ Our simple table model will define the following parameters in `Spreadsheet.FCSt
 `Table.FCStd` is where the dynamic linked object concept is illustrated.
 
 The goal is to *not* duplicate the following assembly logic for each table leg variant:
-* The `TableTop` and one of the `TableLeg*` objects are linked into the `Table` project
-* The `TableLeg*` link is renamed `TableLeg` and the `Linked Object` property is changed to the following conditionnal expression:
-  ```<<Spreadsheet>>#Spreadsheet.TableLegVariant == <<Square>> ? <<SquareTableLeg>>#<<SquareTableLeg>>._self : <<RoundTableLeg>>#<<RoundTableLeg>>._self```
-* Each table leg must appear **four** times underneath each corner of the table top so a rectangular array is created using the parametric `TableLeg` link as base object
+* Each table leg must appear **four** times underneath each corner of the table top.
+
+How this is accomplished:
+* The `TableTop` and one of the TableLeg objects (Round or Square) are linked into the `Table` document.
+* The TableLeg link is renamed to `TableLeg` and the "Linked Object" property is changed to the following conditional expression:
+  `<<Spreadsheet>>#Spreadsheet.TableLegVariant == <<Square>> ? <<SquareTableLeg>>#<<SquareTableLeg>>._self : <<RoundTableLeg>>#<<RoundTableLeg>>._self`
+* Each table leg must appear **four** times underneath each corner of the table top so an [orthogonal array](https://wiki.freecadweb.org/Draft_OrthoArray) is created using the parametric `TableLeg` link as a base object.
 
 ![Dynamic Table Leg](dynamic-table-leg.gif)
 
